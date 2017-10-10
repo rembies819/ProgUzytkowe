@@ -1,4 +1,4 @@
 # ProgUzytkowe
 Adam Rembiewski
 ## Opis Projektu
-Projekt przygotowany na cwiczenia: Programy uzytkowe. :)
+Projekt przygotowany na cwiczenia: Programy uzytkowe.
