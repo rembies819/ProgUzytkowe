@@ -1,0 +1,57 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[MeX]{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+%opening
+\title{}
+\author{Adam Rembiewski}
+
+\begin{document}
+
+\maketitle
+
+\section{Wzory Matematyczne}
+$$\lim_{n \to \infty}\sum_{k=1}^n \frac{1}{k^2}= \frac{\pi^2}{6}$$
+
+$$\prod_{i=2}^{n=i^2}= \frac{\lim^{n \to 4}(1+\frac{1}{n})^n}{\sum k(\frac{1}{n})}$$
+
+$$\int_{2}^{\infty}\frac{1}{log_{2}x}dx=\frac{1}{x}\, sinx=1-cos^2(x)$$
+
+$$
+\left[\begin{array}{cccc}
+a_{11} & a_{12} & \dots & a_{1k}\\
+a_{21} & a_{22} & \dots & a_{2k}\\
+\vdots & \vdots & \ddots& \vdots \\
+a_{k1} & a_{k2} & \dots & a_{kk}
+\end{array}\right]
+\mathbf *
+\left[\begin{array}{c}
+x_{1} \\
+x_{2} \\
+\vdots \\
+x_{k} \\
+\end{array}\right]
+\mathbf =
+\left[\begin{array}{c}
+b_{1} \\
+b_{2} \\
+\vdots \\
+b_{k} \\
+\end{array}\right]
+$$
+Procedure\\
+Input data\\
+${A'} {\gets \emptyset}$\\
+$iter \gets 0$
+\begin{algorithmic}
+
+\If {$i\geq maxval$}
+    \State $i\gets 0$
+\Else
+    \If {$i+k\leq maxval$}
+        \State $i\gets i+k$
+    \EndIf
+\EndIf
+\end{algorithmic}
+\end{document}
