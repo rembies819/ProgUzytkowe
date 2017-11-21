@@ -1,0 +1,248 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{polski}
+\usepackage[cp1250]{inputenc}
+\usepackage{latexsym}
+\author{H.~Partl}
+\title{Szkic artykułu}
+\frenchspacing
+\begin{document}
+\maketitle
+\tableofcontents
+\section{Pierwszy rozdział}
+Treść pierwszego rozdziału.
+\section[Kolejny rozdział]{Drugi rozdział}
+Treść drugie rozdziału.
+\end{document}
+
+
+
+\documentclass[a4paper,11pt]{article}
+\usepackage{polski}
+\usepackage[cp1250]{inputenc}
+\usepackage{graphicx} 
+\begin{document}
+
+\begin{figure}
+\centering
+\includegraphics[width=3cm]k
+\caption{Tu umieszczasz opis}
+\label{fig:obrazek k}
+\end{figure}
+
+\end{document}
+
+
+\begin{enumerate}
+  \item The first item
+  \item The second item
+  \item The third etc \ldots
+\end{enumerate}
+
+
+Partl~\cite{pa} przedstawi\l \ldots
+\begin{thebibliography}{99}
+\bibitem{pa} H.~Partl:
+\emph{German \TeX},
+TUGboat Vol.~9,, No.~1 ('88)
+\end{thebibliography}
+
+
+
+
+https://en.wikibooks.org/wiki/LaTeX/Labels_and_Cross-referencing
+
+I greeted in section~\ref{sec:greetings}.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+TeX - zasada działania
+
+[Edytor tekstu] -> .tex -> [TeX/LaTeX] -> .dvi -> ekran, drukarka, [dvips] -> .ps, [dvipdfm] -> .pdf
+LaTeX jako rozszerzenie TeX-a
+
+Założenie: oddzielenie treści od struktury oraz dodatkowe polecenia i makra ułatwiające tworzenie dokumentów.
+Dokument w LaTeX-u: preambuła, część główna
+
+\documentclass[opcje]{klasa} %początek preambuły;
+    opcje: 10(11,12)pt, a4(letter)paper, twocolumn, draft; klasy: article, report, book, letter, slides
+
+Najczęściej używane komendy w preambule:
+\author{Autor Dokumentu}
+\title{Tytuł dokumentu}
+\date{} %wyłączenie drukowania daty
+\linespread{1.3} %interlinia
+\usepackage{pakiet} %dołączenie dodatkowego pakietu
+\sloppy %trochę brzydszy dokument, ale mniej błędów przy jego przetwarzaniu
+\pagestyle{} %plain, headings, empty - styl paginy
+%A to jest komentarz
+
+Bardziej zaawansowane komendy preambuły:
+\newtheorem{tw}{Twierdzenie} %nowe srodowisko "tw" do wyróżniania np. twierdzeń
+\newcommand{\be}{\begin{equation}} %nowa komenda bez parametru (skrót)
+\newcommand{\wyroznienie}[1]{\texttt{#1}} %nowa komenda z parametrem
+
+\begin{document} %część główna
+...
+\end{document}
+Znaki specjalne
+
+$\backslash$   \{   \}   \%   \#   \$   \&   \_   \^   \~
+Polonizacja
+
+\usepackage{polski} %wczytanie pakietu "polski" 
+\prefixing %polskie znaki: /a /c /e /z /x /o /s /l /A /C itd.
+dodatkowe klasy z polskimi zwyczajami typograficznymi: mwart, mwbk, mwrep
+Układ graficzny strony
+
+Zmiana marginesów (w preambule):
+\addtolength{\textwidth}{3cm}
+\addtolength{\hoffset}{-1.5cm}
+\addtolength{\textheight}{3cm}
+\addtolength{\voffset}{-1.5cm}
+Powyższe polecenia modyfikują domyślny układ strony, poszerzając domyślną szerokość i długość szpalty o 3cm.
+
+Można też użyć pakietu "geometry":
+\usepackage[a4paper, left=2.5cm, right=2.5cm, top=3.5cm, bottom=3.5cm, headsep=1.2cm]{geometry}
+Struktura dokumentu: podział logiczny
+
+\maketitle %utworzenie tytułu na podstawie preambuły
+\section[tytul_do_spisu]{tytuł} \subsection{}, \subsubsection{}
+\paragraph{} \subparagraph{}
+\part{}, \chapter{} %w klasach book, report
+\input{plik} %wczytanie zawartości innego pliku (przydatne przy długich dokumentach)
+Formatowanie tekstu
+
+\\ lub \newline %nowy wiersz
+[pusty wiersz] %nowy akapit
+\newpage %nowa strona
+\nolinebreak lub ~ %zakaz złamania wiersza
+\nopagebreak %zakaz złamania strony
+\[spacja] %pojedynczy odstęp
+\vspace{4cm}, \bigskip, \medskip, \smallskip %odstęp pionowy
+\hspace{2in} %odstęp poziomy
+\begin{center} ... \end{center} %justowanie wiersza w poziomie; center, flushright, flushleft
+\thispagestyle{} %zmiana stylu paginy dla pojedynczej strony
+Różne symbole
+
+cudzysłowy: ,, ... '' 
+\ldots, \cdots %trzykropki
+-, --, --- %dywiz (łącznik), półpauza, myślnik
+Środowiska
+
+\begin{nazwa} 
+  ...
+\end{nazwa}
+
+Wybrane środowiska:
+center, flushright, flushleft %justowanie
+enumerate, itemize (\item) %wyliczenia
+figure, table, tabular %rysunki, tabele
+verbatim %symulacja maszynopisu
+small, large, huge itp. %stopnie pisma
+Tabele
+
+\begin{tabular}{|l|c|r|} %lub np. {lcrrr}, {|rr|} itd. w zależności od liczby żądanych kolumn i ich justowania
+\hline %linia pozioma w tabeli 
+... & ... & ... \\
+... %kolejne wiersze 
+\multicolumn{3}{c}{...} \\ % rozciągnięcie wiersza na 3 kolumny
+\end{tabular}
+
+Najczęściej wstawia się tabele w środowisko "table", dzięki czemu są numerowane, można wstawić tytuł (\caption{}) oraz etykietę (\label{}) - patrz dział "Rysunki".
+Rysunki
+
+Metoda dołączania rysunków postscriptowych (.ps, .eps):
+
+\input{epsfx} %dołączenie pliku umożliwiającego dołączanie grafik (w preambule)
+...
+\begin{figure}[!ht] %!ht - parametry umieszczenia rysunku na stronie
+  \epsfxsize=6cm \epsfbox{rysunek.eps}
+  \caption[Podpis_do_spisu]{Podpis}
+  \label{etykieta}
+\end{figure}
+
+Zwykle rysunki wstawia się w środowisko "figure", dzięki czemu są numerowane, można wstawić tytuł (\caption{}) oraz etykietę (\label{}).
+Umieszczanie rysunków rastrowych (.bmp, .jpg, .png) jest możliwe np. przy użyciu pakietu "graphicx".
+Spisy
+
+Spis treści: \tableofcontents
+Spis tabel, rysunków: \listoftables, \listoffigures
+Spis literatury: \begin{thebibliography}{99} \bibitem{etykieta}... \end{thebibliography}
+Odnośniki, odsyłacze, przypisy
+
+\label{etykieta} %etykieta rozdzialu, tabeli, rysunku, strony itp.
+\ref{etykieta} %odsylacz do rozdzialu, tabeli, rysunku itp. z etykieta
+\pageref{etykieta} %odsyłacz do strony z etykieta 
+\footnote{...} %przypis
+\cite[etykieta] %ze spisu literatury
+Matematyka
+
+$...$ %krótka wstawka matematyczna wewnątrz akapitu
+\begin{displaymath} ... \end{displaymath} %równanie nienumerowane
+\begin{equation} ... \end{equation} %równanie numerowane (wyłączenie numeracji: \nonumber)
+\begin{eqnarray} ... & ... \\ ... & \end{equation} %układ równań - numerowany
+Odstępy: \! (odstęp ujemny)   \,   \:   \;   \[spacja]   \quad   \qquad
+Greckie litery: \alpha, \Beta, \Gamma, \phi, \varphi itd...
+Inne symbole (proste): \infty, \neq, \leq, \geq, \pm, \in, \pi, \vdots, \ddots, \ldots, \ldots
+  \rightarrow (\to), \leftarrow, \longright(left)arrow, \times, \cdot
+pogrubienie: \mathbf{}
+pismo kaligraficzne: \mathcal{}
+matematyczne symbole półgrube: \mbox{\boldmath$...$}
+tryb normalny: \textrm{}
+Funkcje: \sin{}, \cos{}, \tan{} \ln{}, \cot{} itd...
+Indeksy górna, dolne: a^b, x_i
+Inne symbole (złożone): \vec{}, \sum_{od}^{do}, \int_{od}^{do}, \sqrt{}, \lim_{}, 
+   n \atop k (n nad k), n \choose k (symbol Newtona), \overline{}, \underline{}
+   \dot{}, \ddot{} Ułamki: \frac{licznik}{mianownik}
+Nawiasy: [ ( \{ \underbrace
+  \left[ ... \right] (automatyczny rozmiar nawiasu)
+  \big \Big \bigg \Bigg + nawias, np. \bigg( (ręczny rozmiar nawiasu)
+macierze (podobnie jak tabele): 
+  \begin{array}{ccc} %Trzy kolumny
+  ... & ... & ... \\
+  ... %kolejne wiersze
+  \end{array}
+Czcionki i stopień pisma
+
+\textrm{krój szeryfowy}
+\textsf{krój bezszeryfowy}
+\texttt{grotesk}
+\textmd{pismo jasne}
+\textbf{pismo grube}
+\textup{odmiana prosta}
+\textsl{odmiana pochyła}
+\textit{kursywa}
+\textsc{kapitaliki}
+\textnormal{głowna czcionka dokumentu}
+\emph{wyróżnienie}
+
+{\Huge największy}
+{\huge ogromny}
+{\LARGE bardzo duży}
+{\Large większy}
+{\large duży}
+{\normalsize normalny}
+{\small mały}
+{\footnotesize mniejszy }
+{\scriptsize bardzo mały}
+{\tiny mikroskopijny}
+
+Można używać składni jak dla środowisk, np. \begin{Large} ... \end{Large}
+
+
+
+
